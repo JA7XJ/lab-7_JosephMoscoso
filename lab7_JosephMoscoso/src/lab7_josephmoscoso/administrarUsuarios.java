@@ -6,6 +6,10 @@
 package lab7_josephmoscoso;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -37,9 +41,45 @@ public class administrarUsuarios {
         this.archivo = archivo;
     }
 
-    @Override
-    public String toString() {
-        return "administrarUsuarios{" + "listaUsuarios=" + listaUsuarios + ", archivo=" + archivo + '}';
+    public void cargarArchivo() {
+        try {
+            listaUsuarios = new ArrayList();
+            Usuarios temp;
+            if (archivo.exists()) {
+                FileInputStream entrada = new FileInputStream(archivo);
+                ObjectInputStream objeto = new ObjectInputStream(entrada);
+                try {
+                    while ((temp = (Usuarios) objeto.readObject()) != null) {
+                        listaUsuarios.add(temp);
+                    }
+                } catch (Exception e) {
+                }
+                objeto.close();
+                entrada.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    
+
+    public void escribirArchivo() {
+        FileOutputStream fw = null;
+        ObjectOutputStream bw = null;
+        try {
+            fw = new FileOutputStream(archivo);
+            bw = new ObjectOutputStream(fw);
+            for (Usuarios t : listaUsuarios) {
+                bw.writeObject(t);
+            }
+            bw.flush();
+        } catch (Exception e) {
+        } finally {
+            try {
+                bw.close();
+                fw.close();
+            } catch (Exception e) {
+            }
+        }
+    }
+
 }
