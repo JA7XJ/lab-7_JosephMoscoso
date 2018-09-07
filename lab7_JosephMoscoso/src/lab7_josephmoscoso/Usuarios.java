@@ -23,7 +23,7 @@ public class Usuarios implements Serializable {
     ArrayList<Usuarios> amigos = new ArrayList();
     ArrayList<Usuarios> interesados = new ArrayList();
     private String descripcion;
-    ArrayList mensajes = new ArrayList();
+    ArrayList<mensajes> mensajes = new ArrayList();
     ArrayList<Usuarios> solicitudes = new ArrayList();
     ArrayList<Usuarios> bloqueados = new ArrayList();
     ArrayList<Calendario> citas = new ArrayList();

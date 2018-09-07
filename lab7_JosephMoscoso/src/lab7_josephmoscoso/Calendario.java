@@ -5,11 +5,13 @@
  */
 package lab7_josephmoscoso;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Joseph
  */
-public class Calendario {
+public class Calendario implements Serializable {
 
     private String fecha;
     private Usuarios persona;
