@@ -91,6 +91,16 @@ public class principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jTextField4 = new javax.swing.JTextField();
+        modificardescripcion = new javax.swing.JDialog();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ta_de = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        modificarintereses = new javax.swing.JDialog();
+        jLabel24 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        ta_de1 = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -275,6 +285,11 @@ public class principal extends javax.swing.JFrame {
         });
 
         mostraru.setEditable(false);
+        mostraru.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mostraruMouseClicked(evt);
+            }
+        });
         mostraru.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mostraruActionPerformed(evt);
@@ -312,18 +327,48 @@ public class principal extends javax.swing.JFrame {
         });
 
         me.setText("Modificar");
+        me.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                meMouseClicked(evt);
+            }
+        });
 
         ms.setText("Modificar");
+        ms.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                msMouseClicked(evt);
+            }
+        });
 
         mu.setText("Modificar");
 
         mi.setText("Modificar");
+        mi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miMouseClicked(evt);
+            }
+        });
 
         mc.setText("Modificar");
+        mc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mcMouseClicked(evt);
+            }
+        });
 
         md.setText("Modificar");
+        md.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mdMouseClicked(evt);
+            }
+        });
 
         mt.setText("Modificar");
+        mt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mtMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -525,6 +570,96 @@ public class principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel23.setText("Ingrese su nueva descripcion");
+
+        ta_de.setColumns(20);
+        ta_de.setRows(5);
+        jScrollPane5.setViewportView(ta_de);
+
+        jButton1.setText("Aceptar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modificardescripcionLayout = new javax.swing.GroupLayout(modificardescripcion.getContentPane());
+        modificardescripcion.getContentPane().setLayout(modificardescripcionLayout);
+        modificardescripcionLayout.setHorizontalGroup(
+            modificardescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificardescripcionLayout.createSequentialGroup()
+                .addGroup(modificardescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modificardescripcionLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane5))
+                    .addGroup(modificardescripcionLayout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(jLabel23)
+                        .addGap(0, 148, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modificardescripcionLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(265, 265, 265))
+        );
+        modificardescripcionLayout.setVerticalGroup(
+            modificardescripcionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificardescripcionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(27, 27, 27))
+        );
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel24.setText("Intereses");
+
+        ta_de1.setColumns(20);
+        ta_de1.setRows(5);
+        jScrollPane6.setViewportView(ta_de1);
+
+        jButton2.setText("Aceptar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modificarinteresesLayout = new javax.swing.GroupLayout(modificarintereses.getContentPane());
+        modificarintereses.getContentPane().setLayout(modificarinteresesLayout);
+        modificarinteresesLayout.setHorizontalGroup(
+            modificarinteresesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificarinteresesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(modificarinteresesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modificarinteresesLayout.createSequentialGroup()
+                        .addComponent(jScrollPane6)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modificarinteresesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(183, 183, 183))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modificarinteresesLayout.createSequentialGroup()
+                .addContainerGap(196, Short.MAX_VALUE)
+                .addComponent(jLabel24)
+                .addGap(176, 176, 176))
+        );
+        modificarinteresesLayout.setVerticalGroup(
+            modificarinteresesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificarinteresesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel24)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -724,6 +859,130 @@ public class principal extends javax.swing.JFrame {
         ap.escribirArchivo();
     }//GEN-LAST:event_mnMouseClicked
 
+    private void meMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meMouseClicked
+        // TODO add your handling code here:
+        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+        ap.cargarArchivo();
+        for (Usuarios t : ap.getListaUsuarios()) {
+            if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                t.setEdad(Integer.parseInt(JOptionPane.showInputDialog(jd_usuario, "Ingrese la nueva edad")));
+                mostrare.setText(Integer.toString(t.getEdad()));
+                JOptionPane.showMessageDialog(jd_usuario, "Modificado con exito");
+            }
+        }
+        ap.escribirArchivo();
+    }//GEN-LAST:event_meMouseClicked
+
+    private void msMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_msMouseClicked
+        // TODO add your handling code here:
+        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+        ap.cargarArchivo();
+        for (Usuarios t : ap.getListaUsuarios()) {
+            if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                t.setSexo(JOptionPane.showInputDialog(jd_usuario, "Ingrese el nuevo sexo"));
+                mostrars.setText(t.getSexo());
+                JOptionPane.showMessageDialog(jd_usuario, "Modificado con exito");
+            }
+        }
+        ap.escribirArchivo();
+    }//GEN-LAST:event_msMouseClicked
+
+    private void mostraruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostraruMouseClicked
+        // TODO add your handling code here:
+        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+        ap.cargarArchivo();
+        for (Usuarios t : ap.getListaUsuarios()) {
+            if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                t.setUsuario(JOptionPane.showInputDialog(jd_usuario, "Ingrese el nuevo usuario"));
+                mostraru.setText(t.getUsuario());
+                JOptionPane.showMessageDialog(jd_usuario, "Modificado con exito");
+            }
+        }
+        ap.escribirArchivo();
+    }//GEN-LAST:event_mostraruMouseClicked
+
+    private void mcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mcMouseClicked
+        // TODO add your handling code here:
+        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+        ap.cargarArchivo();
+        for (Usuarios t : ap.getListaUsuarios()) {
+            if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                t.setContraseña(JOptionPane.showInputDialog(jd_usuario, "Ingrese la nueva contraseña"));
+                mostrarc.setText(t.getContraseña());
+                JOptionPane.showMessageDialog(jd_usuario, "Modificado con exito");
+            }
+        }
+        ap.escribirArchivo();
+    }//GEN-LAST:event_mcMouseClicked
+
+    private void mtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mtMouseClicked
+        // TODO add your handling code here:
+        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+        ap.cargarArchivo();
+        for (Usuarios t : ap.getListaUsuarios()) {
+            if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                t.setTipo(JOptionPane.showInputDialog(jd_usuario, "Ingrese el nuevo tipo"));
+                mostrart.setText(t.getTipo());
+                JOptionPane.showMessageDialog(jd_usuario, "Modificado con exito");
+            }
+        }
+        ap.escribirArchivo();
+    }//GEN-LAST:event_mtMouseClicked
+
+    private void miMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miMouseClicked
+        // TODO add your handling code here:
+        modificarintereses.setModal(true);
+        modificarintereses.pack();
+        modificarintereses.setLocationRelativeTo(this);
+        modificarintereses.setVisible(true);
+    }//GEN-LAST:event_miMouseClicked
+
+    private void mdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mdMouseClicked
+        // TODO add your handling code here:
+        modificardescripcion.setModal(true);
+        modificardescripcion.pack();
+        modificardescripcion.setLocationRelativeTo(this);
+        modificardescripcion.setVisible(true);
+    }//GEN-LAST:event_mdMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+        ap.cargarArchivo();
+        for (Usuarios t : ap.getListaUsuarios()) {
+            if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                t.setDescripcion(ta_de.getText());
+                mostrard.setText(t.getDescripcion());
+                JOptionPane.showMessageDialog(jd_usuario, "Modificado con exito");
+            }
+        }
+        ap.escribirArchivo();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+        ap.cargarArchivo();
+        for (Usuarios t : ap.getListaUsuarios()) {
+            if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                String[] intereses = ta_de1.getText().split(",");
+                if (intereses.length >= 9) {
+                    ArrayList tempo = new ArrayList();
+                    for (int i = 0; i < intereses.length; i++) {
+                        tempo.add(intereses[i]);
+                    }
+                    t.setIntereses(tempo);
+                    mostrari.setText(t.getDescripcion());
+                    JOptionPane.showMessageDialog(jd_usuario, "Modificado con exito");
+                } else {
+                    JOptionPane.showMessageDialog(jd_usuario, "Error, tienen que ser mas de 10 intereses");
+                }
+
+            }
+        }
+        ap.escribirArchivo();
+    }//GEN-LAST:event_jButton2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -769,6 +1028,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton bt_registrar;
     private javax.swing.JButton bt_registrarse;
     private javax.swing.ButtonGroup bt_sexo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -784,6 +1045,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -801,6 +1064,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JDialog jd_registrar;
@@ -810,6 +1075,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton me;
     private javax.swing.JButton mi;
     private javax.swing.JButton mn;
+    private javax.swing.JDialog modificardescripcion;
+    private javax.swing.JDialog modificarintereses;
     private javax.swing.JTextField mostrarc;
     private javax.swing.JTextArea mostrard;
     private javax.swing.JTextField mostrare;
@@ -825,6 +1092,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JTextField reg_nombre;
     private javax.swing.JTextField reg_usuario;
     private javax.swing.JSpinner sp_edad;
+    private javax.swing.JTextArea ta_de;
+    private javax.swing.JTextArea ta_de1;
     private javax.swing.JTextArea ta_descripcion;
     private javax.swing.JTextArea ta_intereses;
     private javax.swing.JPasswordField tf_ip;
