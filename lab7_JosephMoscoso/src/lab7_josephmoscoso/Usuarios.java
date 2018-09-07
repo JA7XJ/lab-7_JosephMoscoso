@@ -5,13 +5,14 @@
  */
 package lab7_josephmoscoso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Joseph
  */
-public class Usuarios {
+public class Usuarios implements Serializable {
 
     private String nombre;
     private int edad;
@@ -27,6 +28,7 @@ public class Usuarios {
     ArrayList<Usuarios> bloqueados = new ArrayList();
     ArrayList<Calendario> citas = new ArrayList();
     private String tipo;
+    private static final long SerialVersionUTD = 777L;
 
     public Usuarios() {
     }

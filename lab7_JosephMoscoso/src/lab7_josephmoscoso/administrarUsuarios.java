@@ -18,19 +18,19 @@ import java.util.ArrayList;
  */
 public class administrarUsuarios {
 
-    ArrayList<Usuarios> listaUsuarios = new ArrayList();
-    private File archivo;
+    ArrayList<Usuarios> l = new ArrayList();
+    private File archivo = null;
 
     public administrarUsuarios(String path) {
         archivo = new File(path);
     }
 
     public ArrayList<Usuarios> getListaUsuarios() {
-        return listaUsuarios;
+        return l;
     }
 
-    public void setListaUsuarios(ArrayList<Usuarios> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+    public void setListaUsuarios(ArrayList<Usuarios> l) {
+        this.l = l;
     }
 
     public File getArchivo() {
@@ -40,19 +40,21 @@ public class administrarUsuarios {
     public void setArchivo(File archivo) {
         this.archivo = archivo;
     }
-     public void setpersona(Usuarios p) {
-        this.listaUsuarios.add(p);
+
+    public void setListaUsuario(Usuarios p) {
+        this.l.add(p);
     }
+
     public void cargarArchivo() {
         try {
-            listaUsuarios = new ArrayList();
+            l = new ArrayList();
             Usuarios temp;
             if (archivo.exists()) {
                 FileInputStream entrada = new FileInputStream(archivo);
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 try {
                     while ((temp = (Usuarios) objeto.readObject()) != null) {
-                        listaUsuarios.add(temp);
+                        l.add(temp);
                     }
                 } catch (Exception e) {
                 }
@@ -70,7 +72,7 @@ public class administrarUsuarios {
         try {
             fw = new FileOutputStream(archivo);
             bw = new ObjectOutputStream(fw);
-            for (Usuarios t : listaUsuarios) {
+            for (Usuarios t : l) {
                 bw.writeObject(t);
             }
             bw.flush();

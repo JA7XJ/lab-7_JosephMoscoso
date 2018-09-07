@@ -55,6 +55,7 @@ public class principal extends javax.swing.JFrame {
         bt_registrar = new javax.swing.JButton();
         bt_sexo = new javax.swing.ButtonGroup();
         bg_premium = new javax.swing.ButtonGroup();
+        jd_usuario = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -210,6 +211,17 @@ public class principal extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
+        javax.swing.GroupLayout jd_usuarioLayout = new javax.swing.GroupLayout(jd_usuario.getContentPane());
+        jd_usuario.getContentPane().setLayout(jd_usuarioLayout);
+        jd_usuarioLayout.setHorizontalGroup(
+            jd_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 721, Short.MAX_VALUE)
+        );
+        jd_usuarioLayout.setVerticalGroup(
+            jd_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 533, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -220,6 +232,11 @@ public class principal extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
 
         bt_iniciar.setText("Iniciar sesión");
+        bt_iniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_iniciarMouseClicked(evt);
+            }
+        });
 
         jLabel4.setText("¿No tienes cuenta? ¡Registrate aquí!");
 
@@ -322,7 +339,7 @@ public class principal extends javax.swing.JFrame {
                     u.setIntereses(tempo);
                     administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
                     ap.cargarArchivo();
-                    ap.setpersona(u);
+                    ap.setListaUsuario(u);
                     ap.escribirArchivo();
                     JOptionPane.showMessageDialog(jd_registrar, "Usuario registrado con exito");
                     reg_nombre.setText("");
@@ -338,6 +355,27 @@ public class principal extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_bt_registrarMouseClicked
+
+    private void bt_iniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_iniciarMouseClicked
+        // TODO add your handling code here:
+        try {
+            administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+            ap.cargarArchivo();
+            for (Usuarios t : ap.getListaUsuarios()) {
+                if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                    JOptionPane.showMessageDialog(this, "Inicio exitoso");
+                    jd_usuario.setModal(true);
+                    jd_usuario.pack();
+                    jd_usuario.setLocationRelativeTo(this);
+                    jd_usuario.setVisible(true);
+                }
+            }
+            ap.escribirArchivo(); 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_bt_iniciarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -400,6 +438,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JDialog jd_registrar;
+    private javax.swing.JDialog jd_usuario;
     private javax.swing.JTextField reg_contraseña;
     private javax.swing.JTextField reg_nombre;
     private javax.swing.JTextField reg_usuario;
