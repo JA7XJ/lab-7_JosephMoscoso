@@ -40,7 +40,9 @@ public class administrarUsuarios {
     public void setArchivo(File archivo) {
         this.archivo = archivo;
     }
-
+     public void setpersona(Usuarios p) {
+        this.listaUsuarios.add(p);
+    }
     public void cargarArchivo() {
         try {
             listaUsuarios = new ArrayList();
