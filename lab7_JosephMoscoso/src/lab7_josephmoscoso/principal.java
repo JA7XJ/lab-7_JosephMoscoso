@@ -6,6 +6,7 @@
 package lab7_josephmoscoso;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -57,7 +58,7 @@ public class principal extends javax.swing.JFrame {
         bg_premium = new javax.swing.ButtonGroup();
         jd_usuario = new javax.swing.JDialog();
         jLabel14 = new javax.swing.JLabel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        tab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -86,6 +87,13 @@ public class principal extends javax.swing.JFrame {
         md = new javax.swing.JButton();
         mt = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jl_p = new javax.swing.JList<>();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jl_a = new javax.swing.JList<>();
+        jLabel26 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -259,7 +267,12 @@ public class principal extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel14.setText("Bienvenido");
 
-        jTabbedPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tab.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tab.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabStateChanged(evt);
+            }
+        });
 
         jLabel15.setText("Nombre Completo");
 
@@ -420,7 +433,7 @@ public class principal extends javax.swing.JFrame {
                         .addComponent(mostrart, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mt)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -472,59 +485,106 @@ public class principal extends javax.swing.JFrame {
                         .addGap(27, 27, 27))))
         );
 
-        jTabbedPane2.addTab("Inicio", jPanel1);
+        tab.addTab("Inicio", jPanel1);
+
+        jl_p.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jl_p.setModel(new DefaultListModel());
+        jScrollPane7.setViewportView(jl_p);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel25.setText("Lista de personas");
+
+        jl_a.setModel(new DefaultListModel());
+        jScrollPane8.setViewportView(jl_a);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel26.setText("Lista actual de amigos");
+
+        jButton3.setText("Agregar a amigos");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 781, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel26)
+                .addGap(100, 100, 100))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                            .addComponent(jScrollPane7))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(199, 199, 199))))
         );
 
-        jTabbedPane2.addTab("Agregar amigos", jPanel2);
+        tab.addTab("Agregar amigos", jPanel2);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 781, Short.MAX_VALUE)
+            .addGap(0, 787, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Bloquear usuario", jPanel6);
+        tab.addTab("Bloquear usuario", jPanel6);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 781, Short.MAX_VALUE)
+            .addGap(0, 787, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Ver perfiles", jPanel3);
+        tab.addTab("Ver perfiles", jPanel3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 781, Short.MAX_VALUE)
+            .addGap(0, 787, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Ver/Enviar mensaje", jPanel4);
+        tab.addTab("Ver/Enviar mensaje", jPanel4);
 
         jPanel5.setEnabled(false);
 
@@ -532,14 +592,14 @@ public class principal extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 781, Short.MAX_VALUE)
+            .addGap(0, 787, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 465, Short.MAX_VALUE)
         );
 
-        jTabbedPane2.addTab("Usuarios Intereses(Solo premium)", jPanel5);
+        tab.addTab("Usuarios Intereses(Solo premium)", jPanel5);
 
         javax.swing.GroupLayout jd_usuarioLayout = new javax.swing.GroupLayout(jd_usuario.getContentPane());
         jd_usuario.getContentPane().setLayout(jd_usuarioLayout);
@@ -551,7 +611,7 @@ public class principal extends javax.swing.JFrame {
                 .addGap(332, 332, 332))
             .addGroup(jd_usuarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane2)
+                .addComponent(tab)
                 .addContainerGap())
         );
         jd_usuarioLayout.setVerticalGroup(
@@ -560,7 +620,7 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2)
+                .addComponent(tab)
                 .addContainerGap())
         );
 
@@ -661,6 +721,11 @@ public class principal extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Tander");
@@ -753,11 +818,13 @@ public class principal extends javax.swing.JFrame {
     private void bt_registrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_registrarMouseClicked
         // TODO add your handling code here:
         try {
+//            administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+//            ap.cargarArchivo();
             if ("".equals(reg_nombre.getText()) || (Integer) sp_edad.getValue() < 18 || "".equals(reg_usuario.getText()) || "".equals(reg_contraseña.getText()) || "".equals(ta_descripcion.getText()) || "".equals(ta_intereses.getText())) {
                 JOptionPane.showMessageDialog(jd_registrar, "Lo siento, campo vacio o edad menor que 18");
             } else {
                 String[] intereses = ta_intereses.getText().split(",");
-                if (intereses.length >= 9) {
+                if (intereses.length >= 10) {
                     String sexo = "", tipo = "";
                     if (bt_m.isSelected()) {
                         sexo = "Masculino";
@@ -773,19 +840,33 @@ public class principal extends javax.swing.JFrame {
                     for (int i = 0; i < intereses.length; i++) {
                         tempo.add(intereses[i]);
                     }
-                    Usuarios u = new Usuarios(reg_nombre.getText(), (Integer) sp_edad.getValue(), sexo, reg_usuario.getText(), reg_contraseña.getText(), ta_descripcion.getText(), tipo);
-                    u.setIntereses(tempo);
+//                    Usuarios u = new Usuarios(reg_nombre.getText(), (Integer) sp_edad.getValue(), sexo, reg_usuario.getText(), reg_contraseña.getText(), ta_descripcion.getText(), tipo);
+//                    u.setIntereses(tempo);
                     administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
                     ap.cargarArchivo();
-                    ap.setListaUsuario(u);
-                    ap.escribirArchivo();
-                    JOptionPane.showMessageDialog(jd_registrar, "Usuario registrado con exito");
-                    reg_nombre.setText("");
-                    reg_usuario.setText("");
-                    reg_contraseña.setText("");
-                    ta_descripcion.setText("");
-                    ta_intereses.setText("");
-                    jd_registrar.setVisible(false);
+                    int valid = 0;
+                    for (Usuarios t : ap.getListaUsuarios()) {
+                        if (reg_usuario.getText().equals(t.getUsuario())) {
+                            valid++;
+                        } else {
+
+                        }
+                    }
+                    if (valid == 0) {
+                        Usuarios u = new Usuarios(reg_nombre.getText(), (Integer) sp_edad.getValue(), sexo, reg_usuario.getText(), reg_contraseña.getText(), ta_descripcion.getText(), tipo);
+                        u.setIntereses(tempo);
+                        ap.setListaUsuario(u);
+                        ap.escribirArchivo();
+                        JOptionPane.showMessageDialog(jd_registrar, "Usuario registrado con exito");
+                        reg_nombre.setText("");
+                        reg_usuario.setText("");
+                        reg_contraseña.setText("");
+                        ta_descripcion.setText("");
+                        ta_intereses.setText("");
+                        jd_registrar.setVisible(false);
+                    } else {
+                        JOptionPane.showMessageDialog(jd_registrar, "Error, usuario ya existe");
+                    }
                 } else {
                     JOptionPane.showMessageDialog(jd_registrar, "Lo siento, faltan mas intereses y/o espacios");
                 }
@@ -968,7 +1049,7 @@ public class principal extends javax.swing.JFrame {
         for (Usuarios t : ap.getListaUsuarios()) {
             if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
                 String[] intereses = ta_de1.getText().split(",");
-                if (intereses.length >= 9) {
+                if (intereses.length >= 10) {
                     ArrayList tempo = new ArrayList();
                     for (int i = 0; i < intereses.length; i++) {
                         tempo.add(intereses[i]);
@@ -985,6 +1066,63 @@ public class principal extends javax.swing.JFrame {
         modificarintereses.setVisible(false);
         ap.escribirArchivo();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void tabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabStateChanged
+        // TODO add your handling code here:
+        if (tab.getSelectedIndex() == 1) {
+            administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+            ap.cargarArchivo();
+            DefaultListModel m = (DefaultListModel) jl_p.getModel();
+            m.removeAllElements();
+            for (Usuarios t : ap.getListaUsuarios()) {
+                if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+
+                } else {
+                    m.addElement(t);
+                }
+            }
+            jl_p.setModel(m);
+            DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
+            m2.removeAllElements();
+            for (Usuarios t : ap.getListaUsuarios()) {
+                if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                    for (int i = 0; i < t.getAmigos().size(); i++) {
+                        m2.addElement(t.getAmigos().get(i));
+                    }
+                }
+            }
+            jl_a.setModel(m2);
+            ap.escribirArchivo();
+        }
+    }//GEN-LAST:event_tabStateChanged
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        try {
+            if (jl_p.getSelectedIndex() >= 0) {
+                DefaultListModel m = (DefaultListModel) jl_p.getModel();
+                DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
+                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+                ap.cargarArchivo();
+                for (Usuarios t : ap.getListaUsuarios()) {
+                    if (tf_iu.getText().equals(t.getUsuario())) {
+                        t.getAmigos().add((Usuarios) m.get(jl_p.getSelectedIndex()));
+                        m2.addElement(t.getAmigos().get(t.getAmigos().size() - 1));
+                    }
+                }
+                jl_a.setModel(m2);
+                m.remove(jl_p.getSelectedIndex());
+                jl_p.setModel(m);
+                ap.escribirArchivo();
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -1033,6 +1171,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bt_sexo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1050,6 +1189,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1069,10 +1210,13 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JDialog jd_registrar;
     private javax.swing.JDialog jd_usuario;
+    private javax.swing.JList<String> jl_a;
+    private javax.swing.JList<String> jl_p;
     private javax.swing.JButton mc;
     private javax.swing.JButton md;
     private javax.swing.JButton me;
@@ -1099,6 +1243,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_de1;
     private javax.swing.JTextArea ta_descripcion;
     private javax.swing.JTextArea ta_intereses;
+    private javax.swing.JTabbedPane tab;
     private javax.swing.JPasswordField tf_ip;
     private javax.swing.JTextField tf_iu;
     // End of variables declaration//GEN-END:variables
