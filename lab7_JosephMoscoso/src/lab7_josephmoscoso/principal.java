@@ -931,6 +931,7 @@ public class principal extends javax.swing.JFrame {
 
     private void miMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miMouseClicked
         // TODO add your handling code here:
+        ta_de1.setText(mostrari.getText());
         modificarintereses.setModal(true);
         modificarintereses.pack();
         modificarintereses.setLocationRelativeTo(this);
@@ -956,6 +957,7 @@ public class principal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(jd_usuario, "Modificado con exito");
             }
         }
+        modificardescripcion.setVisible(false);
         ap.escribirArchivo();
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -972,7 +974,7 @@ public class principal extends javax.swing.JFrame {
                         tempo.add(intereses[i]);
                     }
                     t.setIntereses(tempo);
-                    mostrari.setText(t.getDescripcion());
+                    mostrari.setText(t.getIntereses().toString());
                     JOptionPane.showMessageDialog(jd_usuario, "Modificado con exito");
                 } else {
                     JOptionPane.showMessageDialog(jd_usuario, "Error, tienen que ser mas de 10 intereses");
@@ -980,6 +982,7 @@ public class principal extends javax.swing.JFrame {
 
             }
         }
+        modificarintereses.setVisible(false);
         ap.escribirArchivo();
     }//GEN-LAST:event_jButton2MouseClicked
 
