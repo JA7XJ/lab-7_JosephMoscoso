@@ -1683,16 +1683,16 @@ public class principal extends javax.swing.JFrame {
             if (tab.getSelectedIndex() == 1) {
                 administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
                 ap.cargarArchivo();
-                DefaultListModel m = (DefaultListModel) jl_p.getModel();
-                m.removeAllElements();
+                DefaultListModel m1 = (DefaultListModel) jl_p.getModel();
+                m1.removeAllElements();
                 for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
                     if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
                         
                     } else {
-                        m.addElement(ap.getListaUsuarios().get(i));
+                        m1.addElement(ap.getListaUsuarios().get(i));
                     }
                 }
-                jl_p.setModel(m);
+                jl_p.setModel(m1);
                 DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
                 m2.removeAllElements();
                 for (int j = 0; j < ap.getListaUsuarios().size(); j++) {
@@ -1789,17 +1789,17 @@ public class principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             if (jl_p.getSelectedIndex() >= 0) {
-                DefaultListModel m = (DefaultListModel) jl_p.getModel();
+                DefaultListModel m1 = (DefaultListModel) jl_p.getModel();
                 DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
                 String nombre, sexo, usuario, contraseña, descripcion, tipo;
                 int edad;
-                nombre = ((Usuarios) m.get(jl_p.getSelectedIndex())).getNombre();
-                edad = ((Usuarios) m.get(jl_p.getSelectedIndex())).getEdad();
-                sexo = ((Usuarios) m.get(jl_p.getSelectedIndex())).getSexo();
-                usuario = ((Usuarios) m.get(jl_p.getSelectedIndex())).getUsuario();
-                contraseña = ((Usuarios) m.get(jl_p.getSelectedIndex())).getContraseña();
-                descripcion = ((Usuarios) m.get(jl_p.getSelectedIndex())).getDescripcion();
-                tipo = ((Usuarios) m.get(jl_p.getSelectedIndex())).getTipo();
+                nombre = ((Usuarios) m1.get(jl_p.getSelectedIndex())).getNombre();
+                edad = ((Usuarios) m1.get(jl_p.getSelectedIndex())).getEdad();
+                sexo = ((Usuarios) m1.get(jl_p.getSelectedIndex())).getSexo();
+                usuario = ((Usuarios) m1.get(jl_p.getSelectedIndex())).getUsuario();
+                contraseña = ((Usuarios) m1.get(jl_p.getSelectedIndex())).getContraseña();
+                descripcion = ((Usuarios) m1.get(jl_p.getSelectedIndex())).getDescripcion();
+                tipo = ((Usuarios) m1.get(jl_p.getSelectedIndex())).getTipo();
                 ArrayList intereses1 = new ArrayList();
                 ArrayList<Usuarios> amigos = new ArrayList();
                 ArrayList<Usuarios> interesados = new ArrayList();
@@ -1833,7 +1833,7 @@ public class principal extends javax.swing.JFrame {
                 ap.escribirArchivo();
                 jl_a.setModel(m2);
                 m.remove(jl_p.getSelectedIndex());
-                jl_p.setModel(m);
+                jl_p.setModel(m1);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1872,7 +1872,7 @@ public class principal extends javax.swing.JFrame {
                 contraseña = ((Usuarios) m.get(block.getSelectedIndex())).getContraseña();
                 descripcion = ((Usuarios) m.get(block.getSelectedIndex())).getDescripcion();
                 tipo = ((Usuarios) m.get(block.getSelectedIndex())).getTipo();
-                ArrayList intereses = new ArrayList();
+                ArrayList intereses1 = new ArrayList();
                 ArrayList<Usuarios> amigos = new ArrayList();
                 ArrayList<Usuarios> interesados = new ArrayList();
                 ArrayList<mensajes> mensajes = new ArrayList();
@@ -1881,7 +1881,7 @@ public class principal extends javax.swing.JFrame {
                 ArrayList<Calendario> citas = new ArrayList();
                 Usuarios u = new Usuarios(nombre, edad, sexo, usuario, contraseña, descripcion, tipo);
                 u.setAmigos(amigos);
-                u.setIntereses(intereses);
+                u.setIntereses(intereses1);
                 u.setInteresados(interesados);
                 u.setMensajes(mensajes);
                 u.setBloqueados(bloqueados);
@@ -1920,8 +1920,8 @@ public class principal extends javax.swing.JFrame {
                 contraseña = ((Usuarios) m.get(jl_x.getSelectedIndex())).getContraseña();
                 descripcion = ((Usuarios) m.get(jl_x.getSelectedIndex())).getDescripcion();
                 tipo = ((Usuarios) m.get(jl_x.getSelectedIndex())).getTipo();
-                ArrayList intereses = new ArrayList();
-                intereses.addAll(((Usuarios) m.get(jl_x.getSelectedIndex())).getIntereses());
+                ArrayList intereses1 = new ArrayList();
+                intereses1.addAll(((Usuarios) m.get(jl_x.getSelectedIndex())).getIntereses());
                 mostrarn1.setText(nombre);
                 mostrare1.setText(Integer.toString(edad));
                 mostrars1.setText(sexo);
@@ -1929,7 +1929,7 @@ public class principal extends javax.swing.JFrame {
                 mostrarc1.setText(contraseña);
                 mostrard1.setText(descripcion);
                 mostrart1.setText(tipo);
-                mostrari1.setText(intereses.toString());
+                mostrari1.setText(intereses1.toString());
                 mirar.setModal(true);
                 mirar.pack();
                 mirar.setLocationRelativeTo(this);
@@ -1998,8 +1998,8 @@ public class principal extends javax.swing.JFrame {
         try {
             if (jl_mensajes.getSelectedIndex() >= 0) {
                 String nombre;
-                DefaultListModel m = (DefaultListModel) intereses.getModel();
-                nombre = ((Usuarios) m.get(intereses.getSelectedIndex())).getUsuario();
+                DefaultListModel m1 = (DefaultListModel) intereses.getModel();
+                nombre = ((Usuarios) m1.get(intereses.getSelectedIndex())).getUsuario();
                 destino.setText(nombre);
                 jd_mensajes.setModal(true);
                 jd_mensajes.pack();
