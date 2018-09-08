@@ -97,7 +97,7 @@ public class principal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        block = new javax.swing.JList<>();
         jButton9 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -572,9 +572,9 @@ public class principal extends javax.swing.JFrame {
 
         tab.addTab("Agregar amigos", jPanel2);
 
-        jList3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jList3.setModel(new DefaultListModel());
-        jScrollPane13.setViewportView(jList3);
+        block.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        block.setModel(new DefaultListModel());
+        jScrollPane13.setViewportView(block);
 
         jButton9.setText("Bloquear (Seleccione primero de la lista)");
 
@@ -1040,7 +1040,7 @@ public class principal extends javax.swing.JFrame {
                         if (reg_usuario.getText().equals(t.getUsuario())) {
                             valid++;
                         } else {
-
+                            
                         }
                     }
                     if (valid == 0) {
@@ -1082,10 +1082,13 @@ public class principal extends javax.swing.JFrame {
                     mostrari.setText(t.getIntereses().toString());
                     if (t.getTipo().equals("Premium")) {
                         jPanel5.setEnabled(true);
+                        tab.getSelectedComponent().setEnabled(true);
                         mostrart.setText(t.getTipo());
                     } else {
                         jPanel5.setEnabled(false);
                         jPanel5.setVisible(false);
+                        tab.getSelectedComponent().setEnabled(false);
+                        tab.getComponentAt(6).setEnabled(false);
                         mostrart.setText(t.getTipo());
                     }
                     JOptionPane.showMessageDialog(this, "Inicio exitoso");
@@ -1252,7 +1255,7 @@ public class principal extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(jd_usuario, "Error, tienen que ser mas de 10 intereses");
                 }
-
+                
             }
         }
         modificarintereses.setVisible(false);
@@ -1261,81 +1264,94 @@ public class principal extends javax.swing.JFrame {
 
     private void tabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabStateChanged
         // TODO add your handling code here:
-        if (tab.getSelectedIndex() == 1) {
-            administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
-            ap.cargarArchivo();
-            DefaultListModel m = (DefaultListModel) jl_p.getModel();
-            m.removeAllElements();
-            for (Usuarios t : ap.getListaUsuarios()) {
-                if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
-
-                } else {
-                    m.addElement(t);
-                }
-            }
-            jl_p.setModel(m);
-            DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
-            m2.removeAllElements();
-            for (Usuarios t : ap.getListaUsuarios()) {
-                if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
-                    for (int i = 0; i < t.getAmigos().size(); i++) {
-                        m2.addElement(t.getAmigos().get(i));
+        try {
+            if (tab.getSelectedIndex() == 1) {
+                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+                ap.cargarArchivo();
+                DefaultListModel m = (DefaultListModel) jl_p.getModel();
+                m.removeAllElements();
+                for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
+                    if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
+                        
+                    } else {
+                        m.addElement(ap.getListaUsuarios().get(i));
                     }
                 }
-            }
-            jl_a.setModel(m2);
-            ap.escribirArchivo();
-        }
-        if (tab.getSelectedIndex() == 3) {
-            administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
-            ap.cargarArchivo();
-            DefaultListModel m = (DefaultListModel) jl_x.getModel();
-            m.removeAllElements();
-            for (Usuarios t : ap.getListaUsuarios()) {
-                if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
-
-                } else {
-                    m.addElement(t);
+                jl_p.setModel(m);
+                DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
+                m2.removeAllElements();
+                for (int j = 0; j < ap.getListaUsuarios().size(); j++) {
+                    if (tf_iu.getText().equals(ap.getListaUsuarios().get(j).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(j).getContraseña())) {
+                        for (int i = 0; i < ap.getListaUsuarios().get(j).getAmigos().size(); i++) {
+                            m2.addElement(ap.getListaUsuarios().get(j).getAmigos().get(i));
+                        }
+                    }
                 }
+                jl_a.setModel(m2);
+                ap.escribirArchivo();
             }
-            jl_x.setModel(m);
-            ap.escribirArchivo();
+            if (tab.getSelectedIndex() == 2) {
+                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+                ap.cargarArchivo();
+                DefaultListModel m = (DefaultListModel) block.getModel();
+                m.removeAllElements();
+                for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
+                    if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
+                        
+                    } else {
+                        m.addElement(ap.getListaUsuarios().get(i));
+                    }
+                }
+                block.setModel(m);
+            }
+            if (tab.getSelectedIndex() == 3) {
+                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+                ap.cargarArchivo();
+                DefaultListModel m = (DefaultListModel) jl_x.getModel();
+                m.removeAllElements();
+                for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
+                    if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
+                        
+                    } else {
+                        m.addElement(ap.getListaUsuarios().get(i));
+                    }
+                }
+                jl_x.setModel(m);
+                ap.escribirArchivo();
+            }
+            if (tab.getSelectedIndex() == 4) {
+                DefaultListModel m = (DefaultListModel) jl_mensajes.getModel();
+                m.removeAllElements();
+                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+                ap.cargarArchivo();
+                for (int j = 0; j < ap.getListaUsuarios().size(); j++) {
+                    if (tf_iu.getText().equals(ap.getListaUsuarios().get(j).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(j).getContraseña())) {
+                        for (int i = 0; i < ap.getListaUsuarios().get(j).getAmigos().size(); i++) {
+                            m.addElement(ap.getListaUsuarios().get(j).getAmigos().get(i));
+                        }
+                    }
+                }
+                jl_mensajes.setModel(m);
+                ap.escribirArchivo();
+            }
+            if (tab.getSelectedIndex() == 5) {
+                
+            }
+            if (tab.getSelectedIndex() == 6) {
+                
+            }            
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if (tab.getSelectedIndex() == 4) {
-
-        }
-        if (tab.getSelectedIndex() == 5) {
-
-        }
-        if (tab.getSelectedIndex() == 6) {
-
-        }
+        
     }//GEN-LAST:event_tabStateChanged
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
         try {
-//            if (jl_p.getSelectedIndex() >= 0) {
-//                DefaultListModel m = (DefaultListModel) jl_p.getModel();
-//                DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
-//                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
-//                ap.cargarArchivo();
-//                for (Usuarios t : ap.getListaUsuarios()) {
-//                    if (tf_iu.getText().equals(t.getUsuario())) {
-//                        t.getAmigos().add((Usuarios) m.get(jl_p.getSelectedIndex()));
-//                        m2.addElement(t.getAmigos().get(t.getAmigos().size() - 1));
-//                    }
-//                }
-//                jl_a.setModel(m2);
-//                m.remove(jl_p.getSelectedIndex());
-//                jl_p.setModel(m);
-//                ap.escribirArchivo();
-//            }
             if (jl_p.getSelectedIndex() >= 0) {
                 DefaultListModel m = (DefaultListModel) jl_p.getModel();
                 DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
-                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
-                ap.cargarArchivo();
                 String nombre, sexo, usuario, contraseña, descripcion, tipo;
                 int edad;
                 nombre = ((Usuarios) m.get(jl_p.getSelectedIndex())).getNombre();
@@ -1360,38 +1376,42 @@ public class principal extends javax.swing.JFrame {
                 u.setBloqueados(bloqueados);
                 u.setSolicitudes(solicitudes);
                 u.setCitas(citas);
-                for (Usuarios t : ap.getListaUsuarios()) {
-                    if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
-                        t.getAmigos().add(u);
-                        m2.addElement(t.getAmigos().get(t.getAmigos().size() - 1));
+                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+                ap.cargarArchivo();
+                //   for (Usuarios t : ap.getListaUsuarios()) {
+                for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
+                    if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
+                        ap.getListaUsuarios().get(i).getAmigos().add(u);
+                        ap.escribirArchivo();
+                        m2.addElement(ap.getListaUsuarios().get(i).getAmigos().get(ap.getListaUsuarios().get(i).getAmigos().size() - 1));
                     }
                 }
+                ap.escribirArchivo();
                 jl_a.setModel(m2);
                 m.remove(jl_p.getSelectedIndex());
                 jl_p.setModel(m);
-                ap.escribirArchivo();
             }
-
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-//        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
-//        ap.cargarArchivo();
-//        ap.escribirArchivo();
-//        JOptionPane.showMessageDialog(this, "Adios");
-//        System.exit(0);
+        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+        ap.cargarArchivo();
+        ap.escribirArchivo();
+        JOptionPane.showMessageDialog(this, "Adios");
+        System.exit(0);
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-//        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
-//        ap.cargarArchivo();
-//        ap.escribirArchivo();
-//        JOptionPane.showMessageDialog(this, "Adios, archivo guardado con exito");
-//        System.exit(0);
+        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+        ap.cargarArchivo();
+        ap.escribirArchivo();
+        JOptionPane.showMessageDialog(this, "Adios, archivo guardado con exito");
+        System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
     /**
@@ -1433,6 +1453,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JRadioButton bg_no;
     private javax.swing.ButtonGroup bg_premium;
     private javax.swing.JRadioButton bg_si;
+    private javax.swing.JList<String> block;
     private javax.swing.JRadioButton bt_f;
     private javax.swing.JButton bt_iniciar;
     private javax.swing.JRadioButton bt_m;
@@ -1482,7 +1503,6 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
