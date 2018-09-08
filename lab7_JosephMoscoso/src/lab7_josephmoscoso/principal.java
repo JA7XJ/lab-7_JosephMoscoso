@@ -5,6 +5,8 @@
  */
 package lab7_josephmoscoso;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.DefaultListModel;
@@ -113,9 +115,9 @@ public class principal extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lista = new javax.swing.JList<>();
         jLabel29 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        bt_cita = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
         intereses = new javax.swing.JList<>();
@@ -169,6 +171,15 @@ public class principal extends javax.swing.JFrame {
         jLabel44 = new javax.swing.JLabel();
         jScrollPane18 = new javax.swing.JScrollPane();
         m = new javax.swing.JTextArea();
+        jd_citas = new javax.swing.JDialog();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        a = new javax.swing.JList<>();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        lugar = new javax.swing.JTextField();
+        fecha = new com.toedter.calendar.JDateChooser();
+        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -758,14 +769,19 @@ public class principal extends javax.swing.JFrame {
 
         tab.addTab("Ver/Enviar mensaje", jPanel4);
 
-        jList1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jList1.setModel(new DefaultListModel());
-        jScrollPane11.setViewportView(jList1);
+        lista.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lista.setModel(new DefaultListModel());
+        jScrollPane11.setViewportView(lista);
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel29.setText("Calendario");
 
-        jButton6.setText("Crear cita");
+        bt_cita.setText("Crear cita");
+        bt_cita.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_citaMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -779,7 +795,7 @@ public class principal extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bt_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         jPanel7Layout.setVerticalGroup(
@@ -793,7 +809,7 @@ public class principal extends javax.swing.JFrame {
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(130, 130, 130)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bt_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -1237,6 +1253,76 @@ public class principal extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
+        a.setModel(new DefaultListModel());
+        jScrollPane19.setViewportView(a);
+
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel45.setText("Creador de citas");
+
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel46.setText("Lugar");
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel47.setText("Fecha");
+
+        jButton6.setText("Crear cita");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_citasLayout = new javax.swing.GroupLayout(jd_citas.getContentPane());
+        jd_citas.getContentPane().setLayout(jd_citasLayout);
+        jd_citasLayout.setHorizontalGroup(
+            jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_citasLayout.createSequentialGroup()
+                .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_citasLayout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel45))
+                    .addGroup(jd_citasLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jd_citasLayout.createSequentialGroup()
+                                    .addComponent(jLabel46)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lugar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jd_citasLayout.createSequentialGroup()
+                                    .addComponent(jLabel47)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_citasLayout.createSequentialGroup()
+                                .addComponent(jButton6)
+                                .addGap(77, 77, 77)))))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        jd_citasLayout.setVerticalGroup(
+            jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_citasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel45)
+                .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_citasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_citasLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel46)
+                            .addComponent(lugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel47)
+                            .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(146, 146, 146)
+                        .addComponent(jButton6)))
+                .addContainerGap(105, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -1622,52 +1708,76 @@ public class principal extends javax.swing.JFrame {
             if (tab.getSelectedIndex() == 2) {
                 administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
                 ap.cargarArchivo();
-                DefaultListModel m = (DefaultListModel) block.getModel();
-                m.removeAllElements();
+                DefaultListModel m1 = (DefaultListModel) block.getModel();
+                m1.removeAllElements();
                 for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
                     if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
                         
                     } else {
-                        m.addElement(ap.getListaUsuarios().get(i));
+                        m1.addElement(ap.getListaUsuarios().get(i));
                     }
                 }
-                block.setModel(m);
+                block.setModel(m1);
             }
             if (tab.getSelectedIndex() == 3) {
                 administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
                 ap.cargarArchivo();
-                DefaultListModel m = (DefaultListModel) jl_x.getModel();
-                m.removeAllElements();
+                DefaultListModel m1 = (DefaultListModel) jl_x.getModel();
+                m1.removeAllElements();
                 for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
                     if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
                         
                     } else {
-                        m.addElement(ap.getListaUsuarios().get(i));
+                        m1.addElement(ap.getListaUsuarios().get(i));
                     }
                 }
-                jl_x.setModel(m);
+                jl_x.setModel(m1);
                 ap.escribirArchivo();
             }
             if (tab.getSelectedIndex() == 4) {
-                DefaultListModel m = (DefaultListModel) jl_mensajes.getModel();
-                m.removeAllElements();
+                DefaultListModel m1 = (DefaultListModel) jl_mensajes.getModel();
+                m1.removeAllElements();
                 administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
                 ap.cargarArchivo();
                 for (int j = 0; j < ap.getListaUsuarios().size(); j++) {
                     if (tf_iu.getText().equals(ap.getListaUsuarios().get(j).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(j).getContraseña())) {
                         for (int i = 0; i < ap.getListaUsuarios().get(j).getAmigos().size(); i++) {
-                            m.addElement(ap.getListaUsuarios().get(j).getAmigos().get(i));
+                            m1.addElement(ap.getListaUsuarios().get(j).getAmigos().get(i));
                         }
                     }
                 }
-                jl_mensajes.setModel(m);
+                jl_mensajes.setModel(m1);
                 ap.escribirArchivo();
             }
             if (tab.getSelectedIndex() == 5) {
-                
+                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+                ap.cargarArchivo();
+                DefaultListModel m1 = (DefaultListModel) lista.getModel();
+                m1.removeAllElements();
+                for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
+                    if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
+                        for (int j = 0; j < ap.getListaUsuarios().get(i).getCitas().size(); j++) {
+                            m1.addElement(ap.getListaUsuarios().get(i).getCitas().get(j));
+                        }
+                    }
+                }
+                lista.setModel(m1);
+                ap.escribirArchivo();
             }
             if (tab.getSelectedIndex() == 6) {
-                
+                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+                ap.cargarArchivo();
+                DefaultListModel m1 = (DefaultListModel) intereses.getModel();
+                m1.removeAllElements();
+                for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
+                    if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
+                        
+                    } else {
+                        m1.addElement(ap.getListaUsuarios().get(i));
+                    }
+                }
+                intereses.setModel(m1);
+                ap.escribirArchivo();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1690,7 +1800,7 @@ public class principal extends javax.swing.JFrame {
                 contraseña = ((Usuarios) m.get(jl_p.getSelectedIndex())).getContraseña();
                 descripcion = ((Usuarios) m.get(jl_p.getSelectedIndex())).getDescripcion();
                 tipo = ((Usuarios) m.get(jl_p.getSelectedIndex())).getTipo();
-                ArrayList intereses = new ArrayList();
+                ArrayList intereses1 = new ArrayList();
                 ArrayList<Usuarios> amigos = new ArrayList();
                 ArrayList<Usuarios> interesados = new ArrayList();
                 ArrayList<mensajes> mensajes = new ArrayList();
@@ -1699,7 +1809,7 @@ public class principal extends javax.swing.JFrame {
                 ArrayList<Calendario> citas = new ArrayList();
                 Usuarios u = new Usuarios(nombre, edad, sexo, usuario, contraseña, descripcion, tipo);
                 u.setAmigos(amigos);
-                u.setIntereses(intereses);
+                u.setIntereses(intereses1);
                 u.setInteresados(interesados);
                 u.setMensajes(mensajes);
                 u.setBloqueados(bloqueados);
@@ -1925,19 +2035,20 @@ public class principal extends javax.swing.JFrame {
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
         try {
-            DefaultListModel m = (DefaultListModel) mensajesre.getModel();
-            m.removeAllElements();
+            DefaultListModel m1 = (DefaultListModel) mensajesre.getModel();
+            m1.removeAllElements();
             administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
             ap.cargarArchivo();
             //   for (Usuarios t : ap.getListaUsuarios()) {
             for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
                 if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
                     for (int j = 0; j < ap.getListaUsuarios().get(i).getMensajes().size(); j++) {
-                        m.addElement(ap.getListaUsuarios().get(i).getMensajes().get(i));
+                        m1.addElement(ap.getListaUsuarios().get(i).getMensajes().get(i));
                     }
                 }
             }
-            mensajesre.setModel(m);
+            ap.escribirArchivo();
+            mensajesre.setModel(m1);
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton5MouseClicked
@@ -1953,6 +2064,49 @@ public class principal extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_bt_cargarMouseClicked
+
+    private void bt_citaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_citaMouseClicked
+        // TODO add your handling code here:
+        try {
+            DefaultListModel m1 = (DefaultListModel) a.getModel();
+            m1.removeAllElements();
+            administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+            ap.cargarArchivo();
+            //   for (Usuarios t : ap.getListaUsuarios()) {
+            for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
+                if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
+                    for (int j = 0; j < ap.getListaUsuarios().get(i).getAmigos().size(); j++) {
+                        m1.addElement(ap.getListaUsuarios().get(i).getAmigos().get(i));
+                    }
+                }
+            }
+            ap.escribirArchivo();
+            a.setModel(m1);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_bt_citaMouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        try {
+            DefaultListModel m1 = (DefaultListModel) a.getModel();
+            m1.removeAllElements();
+            administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+            ap.cargarArchivo();
+            //   for (Usuarios t : ap.getListaUsuarios()) {
+            DateFormat d = new SimpleDateFormat("dd/MM/YYYY");
+            for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
+                if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
+                    ap.getListaUsuarios().get(i).getCitas().add(new Calendario(d.format(fecha.getDate()), (Usuarios) m1.get(i), lugar.getText()));
+                }
+            }
+            ap.escribirArchivo();
+            JOptionPane.showMessageDialog(jd_citas, "cita creada con exito");
+            jd_citas.setVisible(false);
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1990,12 +2144,14 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> a;
     private javax.swing.JRadioButton bg_no;
     private javax.swing.ButtonGroup bg_premium;
     private javax.swing.JRadioButton bg_si;
     private javax.swing.JList<String> block;
     private javax.swing.JButton bt_bloquear;
     private javax.swing.JButton bt_cargar;
+    private javax.swing.JButton bt_cita;
     private javax.swing.JButton bt_enviar;
     private javax.swing.JRadioButton bt_f;
     private javax.swing.JButton bt_iniciar;
@@ -2007,6 +2163,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton bt_verint;
     private javax.swing.JTextField d;
     private javax.swing.JTextField destino;
+    private com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JList<String> intereses;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -2054,12 +2211,14 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2077,6 +2236,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2086,6 +2246,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JDialog jd_citas;
     private javax.swing.JDialog jd_mensajes;
     private javax.swing.JDialog jd_registrar;
     private javax.swing.JDialog jd_usuario;
@@ -2094,6 +2255,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JList<String> jl_mensajes;
     private javax.swing.JList<String> jl_p;
     private javax.swing.JList<String> jl_x;
+    private javax.swing.JList<String> lista;
+    private javax.swing.JTextField lugar;
     private javax.swing.JTextArea m;
     private javax.swing.JButton mc;
     private javax.swing.JButton md;
