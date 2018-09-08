@@ -98,7 +98,7 @@ public class principal extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jScrollPane13 = new javax.swing.JScrollPane();
         block = new javax.swing.JList<>();
-        jButton9 = new javax.swing.JButton();
+        bt_bloquear = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -118,9 +118,9 @@ public class principal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        intereses = new javax.swing.JList<>();
         jLabel30 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        bt_verint = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         modificardescripcion = new javax.swing.JDialog();
         jLabel23 = new javax.swing.JLabel();
@@ -133,6 +133,25 @@ public class principal extends javax.swing.JFrame {
         ta_de1 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        mirar = new javax.swing.JDialog();
+        jLabel32 = new javax.swing.JLabel();
+        mostrarn1 = new javax.swing.JTextField();
+        mostrare1 = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        mostrars1 = new javax.swing.JTextField();
+        mostraru1 = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        mostrarc1 = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        mostrari1 = new javax.swing.JTextArea();
+        jLabel38 = new javax.swing.JLabel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        mostrard1 = new javax.swing.JTextArea();
+        mostrart1 = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -576,7 +595,12 @@ public class principal extends javax.swing.JFrame {
         block.setModel(new DefaultListModel());
         jScrollPane13.setViewportView(block);
 
-        jButton9.setText("Bloquear (Seleccione primero de la lista)");
+        bt_bloquear.setText("Bloquear (Seleccione primero de la lista)");
+        bt_bloquear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_bloquearMouseClicked(evt);
+            }
+        });
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel31.setText("Perfiles");
@@ -589,7 +613,7 @@ public class principal extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
-                .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+                .addComponent(bt_bloquear, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                 .addGap(36, 36, 36))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(167, 167, 167)
@@ -606,7 +630,7 @@ public class principal extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(189, 189, 189)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bt_bloquear, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -620,6 +644,11 @@ public class principal extends javax.swing.JFrame {
         jLabel27.setText("Usuarios");
 
         bt_mirar.setText("Mirar perfil");
+        bt_mirar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_mirarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -709,7 +738,7 @@ public class principal extends javax.swing.JFrame {
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel29.setText("Calendario");
 
-        jButton6.setText("Crear cita (Seleccione primero de la lista)");
+        jButton6.setText("Crear cita");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -745,14 +774,19 @@ public class principal extends javax.swing.JFrame {
 
         jPanel5.setEnabled(false);
 
-        jList2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jList2.setModel(new DefaultListModel());
-        jScrollPane12.setViewportView(jList2);
+        intereses.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        intereses.setModel(new DefaultListModel());
+        jScrollPane12.setViewportView(intereses);
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel30.setText("Usuarios con intereses en comun");
 
-        jButton7.setText("Ver perfil (Seleccione primero de la lista)");
+        bt_verint.setText("Ver perfil (Seleccione primero de la lista)");
+        bt_verint.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_verintMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -764,7 +798,7 @@ public class principal extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67)
-                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE))
+                        .addComponent(bt_verint, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jLabel30)))
@@ -781,7 +815,7 @@ public class principal extends javax.swing.JFrame {
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(155, 155, 155)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bt_verint, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -907,6 +941,144 @@ public class principal extends javax.swing.JFrame {
         );
 
         jButton8.setText("Ver perfil (Seleccione primero de la lista)");
+
+        mirar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mirarMouseClicked(evt);
+            }
+        });
+
+        jLabel32.setText("Nombre Completo");
+
+        mostrarn1.setEditable(false);
+
+        mostrare1.setEditable(false);
+
+        jLabel33.setText("Edad");
+
+        jLabel34.setText("Sexo");
+
+        mostrars1.setEditable(false);
+        mostrars1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrars1ActionPerformed(evt);
+            }
+        });
+
+        mostraru1.setEditable(false);
+        mostraru1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mostraru1MouseClicked(evt);
+            }
+        });
+        mostraru1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostraru1ActionPerformed(evt);
+            }
+        });
+
+        jLabel35.setText("Usuario");
+
+        jLabel36.setText("Contraseña");
+
+        mostrarc1.setEditable(false);
+        mostrarc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarc1ActionPerformed(evt);
+            }
+        });
+
+        jLabel37.setText("Intereses");
+
+        mostrari1.setEditable(false);
+        mostrari1.setColumns(20);
+        mostrari1.setRows(5);
+        jScrollPane14.setViewportView(mostrari1);
+
+        jLabel38.setText("Descripcion");
+
+        mostrard1.setEditable(false);
+        mostrard1.setColumns(20);
+        mostrard1.setRows(5);
+        jScrollPane15.setViewportView(mostrard1);
+
+        mostrart1.setEditable(false);
+
+        jLabel39.setText("Tipo");
+
+        javax.swing.GroupLayout mirarLayout = new javax.swing.GroupLayout(mirar.getContentPane());
+        mirar.getContentPane().setLayout(mirarLayout);
+        mirarLayout.setHorizontalGroup(
+            mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 662, Short.MAX_VALUE)
+            .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mirarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel38)
+                        .addComponent(jLabel37)
+                        .addComponent(jLabel36)
+                        .addComponent(jLabel35)
+                        .addComponent(jLabel34)
+                        .addComponent(jLabel32)
+                        .addComponent(jLabel33))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                            .addComponent(jScrollPane15)
+                            .addGroup(mirarLayout.createSequentialGroup()
+                                .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(mostrare1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mostrars1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mostraru1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mostrarc1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(mirarLayout.createSequentialGroup()
+                            .addComponent(mostrarn1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(85, 85, 85)
+                            .addComponent(jLabel39)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(mostrart1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        mirarLayout.setVerticalGroup(
+            mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 434, Short.MAX_VALUE)
+            .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mirarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel32)
+                        .addComponent(mostrarn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel39)
+                        .addComponent(mostrart1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel33)
+                        .addComponent(mostrare1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel34)
+                        .addComponent(mostrars1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(15, 15, 15)
+                    .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel35)
+                        .addComponent(mostraru1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel36)
+                        .addComponent(mostrarc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel37)
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(mirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel38)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap()))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1040,7 +1212,7 @@ public class principal extends javax.swing.JFrame {
                         if (reg_usuario.getText().equals(t.getUsuario())) {
                             valid++;
                         } else {
-                            
+
                         }
                     }
                     if (valid == 0) {
@@ -1255,7 +1427,7 @@ public class principal extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(jd_usuario, "Error, tienen que ser mas de 10 intereses");
                 }
-                
+
             }
         }
         modificarintereses.setVisible(false);
@@ -1272,7 +1444,7 @@ public class principal extends javax.swing.JFrame {
                 m.removeAllElements();
                 for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
                     if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
-                        
+
                     } else {
                         m.addElement(ap.getListaUsuarios().get(i));
                     }
@@ -1297,7 +1469,7 @@ public class principal extends javax.swing.JFrame {
                 m.removeAllElements();
                 for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
                     if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
-                        
+
                     } else {
                         m.addElement(ap.getListaUsuarios().get(i));
                     }
@@ -1311,7 +1483,7 @@ public class principal extends javax.swing.JFrame {
                 m.removeAllElements();
                 for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
                     if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
-                        
+
                     } else {
                         m.addElement(ap.getListaUsuarios().get(i));
                     }
@@ -1335,15 +1507,15 @@ public class principal extends javax.swing.JFrame {
                 ap.escribirArchivo();
             }
             if (tab.getSelectedIndex() == 5) {
-                
+
             }
             if (tab.getSelectedIndex() == 6) {
-                
-            }            
+
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }//GEN-LAST:event_tabStateChanged
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
@@ -1414,6 +1586,141 @@ public class principal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
+    private void bt_bloquearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_bloquearMouseClicked
+        // TODO add your handling code here:
+        try {
+            if (block.getSelectedIndex() >= 0) {
+                DefaultListModel m = (DefaultListModel) block.getModel();
+                String nombre, sexo, usuario, contraseña, descripcion, tipo;
+                int edad;
+                nombre = ((Usuarios) m.get(block.getSelectedIndex())).getNombre();
+                edad = ((Usuarios) m.get(block.getSelectedIndex())).getEdad();
+                sexo = ((Usuarios) m.get(block.getSelectedIndex())).getSexo();
+                usuario = ((Usuarios) m.get(block.getSelectedIndex())).getUsuario();
+                contraseña = ((Usuarios) m.get(block.getSelectedIndex())).getContraseña();
+                descripcion = ((Usuarios) m.get(block.getSelectedIndex())).getDescripcion();
+                tipo = ((Usuarios) m.get(block.getSelectedIndex())).getTipo();
+                ArrayList intereses = new ArrayList();
+                ArrayList<Usuarios> amigos = new ArrayList();
+                ArrayList<Usuarios> interesados = new ArrayList();
+                ArrayList<mensajes> mensajes = new ArrayList();
+                ArrayList<Usuarios> solicitudes = new ArrayList();
+                ArrayList<Usuarios> bloqueados = new ArrayList();
+                ArrayList<Calendario> citas = new ArrayList();
+                Usuarios u = new Usuarios(nombre, edad, sexo, usuario, contraseña, descripcion, tipo);
+                u.setAmigos(amigos);
+                u.setIntereses(intereses);
+                u.setInteresados(interesados);
+                u.setMensajes(mensajes);
+                u.setBloqueados(bloqueados);
+                u.setSolicitudes(solicitudes);
+                u.setCitas(citas);
+                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+                ap.cargarArchivo();
+                //   for (Usuarios t : ap.getListaUsuarios()) {
+                for (int i = 0; i < ap.getListaUsuarios().size(); i++) {
+                    if (tf_iu.getText().equals(ap.getListaUsuarios().get(i).getUsuario()) && tf_ip.getText().equals(ap.getListaUsuarios().get(i).getContraseña())) {
+                        ap.getListaUsuarios().get(i).getBloqueados().add(u);
+                        ap.escribirArchivo();
+                    }
+                }
+                ap.escribirArchivo();
+                m.remove(block.getSelectedIndex());
+                block.setModel(m);
+                JOptionPane.showMessageDialog(jd_usuario, "Usuario blockeado con exito");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_bt_bloquearMouseClicked
+
+    private void bt_mirarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_mirarMouseClicked
+        // TODO add your handling code here:
+        try {
+            if (jl_x.getSelectedIndex() >= 0) {
+                DefaultListModel m = (DefaultListModel) jl_x.getModel();
+                String nombre, sexo, usuario, contraseña, descripcion, tipo;
+                int edad;
+                nombre = ((Usuarios) m.get(jl_x.getSelectedIndex())).getNombre();
+                edad = ((Usuarios) m.get(jl_x.getSelectedIndex())).getEdad();
+                sexo = ((Usuarios) m.get(jl_x.getSelectedIndex())).getSexo();
+                usuario = ((Usuarios) m.get(jl_x.getSelectedIndex())).getUsuario();
+                contraseña = ((Usuarios) m.get(jl_x.getSelectedIndex())).getContraseña();
+                descripcion = ((Usuarios) m.get(jl_x.getSelectedIndex())).getDescripcion();
+                tipo = ((Usuarios) m.get(jl_x.getSelectedIndex())).getTipo();
+                ArrayList intereses = new ArrayList();
+                intereses.addAll(((Usuarios) m.get(jl_x.getSelectedIndex())).getIntereses());
+                mostrarn1.setText(nombre);
+                mostrare1.setText(Integer.toString(edad));
+                mostrars1.setText(sexo);
+                mostraru1.setText(usuario);
+                mostrarc1.setText(contraseña);
+                mostrard1.setText(descripcion);
+                mostrart1.setText(tipo);
+                mostrari1.setText(intereses.toString());
+                mirar.setModal(true);
+                mirar.pack();
+                mirar.setLocationRelativeTo(this);
+                mirar.setVisible(true);
+            }
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_bt_mirarMouseClicked
+
+    private void mirarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mirarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mirarMouseClicked
+
+    private void mostrars1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrars1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mostrars1ActionPerformed
+
+    private void mostraru1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostraru1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mostraru1MouseClicked
+
+    private void mostraru1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostraru1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mostraru1ActionPerformed
+
+    private void mostrarc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mostrarc1ActionPerformed
+
+    private void bt_verintMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_verintMouseClicked
+        // TODO add your handling code here:
+        try {
+            if (intereses.getSelectedIndex() >= 0) {
+                DefaultListModel m = (DefaultListModel) intereses.getModel();
+                String nombre, sexo, usuario, contraseña, descripcion, tipo;
+                int edad;
+                nombre = ((Usuarios) m.get(intereses.getSelectedIndex())).getNombre();
+                edad = ((Usuarios) m.get(intereses.getSelectedIndex())).getEdad();
+                sexo = ((Usuarios) m.get(intereses.getSelectedIndex())).getSexo();
+                usuario = ((Usuarios) m.get(intereses.getSelectedIndex())).getUsuario();
+                contraseña = ((Usuarios) m.get(intereses.getSelectedIndex())).getContraseña();
+                descripcion = ((Usuarios) m.get(intereses.getSelectedIndex())).getDescripcion();
+                tipo = ((Usuarios) m.get(intereses.getSelectedIndex())).getTipo();
+                ArrayList intereses2 = new ArrayList();
+                intereses2.addAll(((Usuarios) m.get(intereses.getSelectedIndex())).getIntereses());
+                mostrarn1.setText(nombre);
+                mostrare1.setText(Integer.toString(edad));
+                mostrars1.setText(sexo);
+                mostraru1.setText(usuario);
+                mostrarc1.setText(contraseña);
+                mostrard1.setText(descripcion);
+                mostrart1.setText(tipo);
+                mostrari1.setText(intereses2.toString());
+                mirar.setModal(true);
+                mirar.pack();
+                mirar.setLocationRelativeTo(this);
+                mirar.setVisible(true);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_bt_verintMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1454,6 +1761,7 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bg_premium;
     private javax.swing.JRadioButton bg_si;
     private javax.swing.JList<String> block;
+    private javax.swing.JButton bt_bloquear;
     private javax.swing.JRadioButton bt_f;
     private javax.swing.JButton bt_iniciar;
     private javax.swing.JRadioButton bt_m;
@@ -1461,15 +1769,15 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton bt_registrar;
     private javax.swing.JButton bt_registrarse;
     private javax.swing.ButtonGroup bt_sexo;
+    private javax.swing.JButton bt_verint;
+    private javax.swing.JList<String> intereses;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1495,6 +1803,14 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1502,7 +1818,6 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1515,6 +1830,8 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1534,17 +1851,26 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JButton md;
     private javax.swing.JButton me;
     private javax.swing.JButton mi;
+    private javax.swing.JDialog mirar;
     private javax.swing.JButton mn;
     private javax.swing.JDialog modificardescripcion;
     private javax.swing.JDialog modificarintereses;
     private javax.swing.JTextField mostrarc;
+    private javax.swing.JTextField mostrarc1;
     private javax.swing.JTextArea mostrard;
+    private javax.swing.JTextArea mostrard1;
     private javax.swing.JTextField mostrare;
+    private javax.swing.JTextField mostrare1;
     private javax.swing.JTextArea mostrari;
+    private javax.swing.JTextArea mostrari1;
     private javax.swing.JTextField mostrarn;
+    private javax.swing.JTextField mostrarn1;
     private javax.swing.JTextField mostrars;
+    private javax.swing.JTextField mostrars1;
     private javax.swing.JTextField mostrart;
+    private javax.swing.JTextField mostrart1;
     private javax.swing.JTextField mostraru;
+    private javax.swing.JTextField mostraru1;
     private javax.swing.JButton ms;
     private javax.swing.JButton mt;
     private javax.swing.JButton mu;
