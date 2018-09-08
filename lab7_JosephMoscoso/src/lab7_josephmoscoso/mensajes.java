@@ -43,7 +43,7 @@ public class mensajes implements Serializable {
 
     @Override
     public String toString() {
-        return mensaje;
+        return destino;
     }
 
 }
