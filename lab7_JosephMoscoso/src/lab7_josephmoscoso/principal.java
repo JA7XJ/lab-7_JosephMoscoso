@@ -1040,7 +1040,7 @@ public class principal extends javax.swing.JFrame {
                         if (reg_usuario.getText().equals(t.getUsuario())) {
                             valid++;
                         } else {
-                            
+
                         }
                     }
                     if (valid == 0) {
@@ -1252,7 +1252,7 @@ public class principal extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(jd_usuario, "Error, tienen que ser mas de 10 intereses");
                 }
-                
+
             }
         }
         modificarintereses.setVisible(false);
@@ -1268,7 +1268,7 @@ public class principal extends javax.swing.JFrame {
             m.removeAllElements();
             for (Usuarios t : ap.getListaUsuarios()) {
                 if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
-                    
+
                 } else {
                     m.addElement(t);
                 }
@@ -1293,7 +1293,7 @@ public class principal extends javax.swing.JFrame {
             m.removeAllElements();
             for (Usuarios t : ap.getListaUsuarios()) {
                 if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
-                    
+
                 } else {
                     m.addElement(t);
                 }
@@ -1301,19 +1301,68 @@ public class principal extends javax.swing.JFrame {
             jl_x.setModel(m);
             ap.escribirArchivo();
         }
+        if (tab.getSelectedIndex() == 4) {
+
+        }
+        if (tab.getSelectedIndex() == 5) {
+
+        }
+        if (tab.getSelectedIndex() == 6) {
+
+        }
     }//GEN-LAST:event_tabStateChanged
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
         try {
+//            if (jl_p.getSelectedIndex() >= 0) {
+//                DefaultListModel m = (DefaultListModel) jl_p.getModel();
+//                DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
+//                administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+//                ap.cargarArchivo();
+//                for (Usuarios t : ap.getListaUsuarios()) {
+//                    if (tf_iu.getText().equals(t.getUsuario())) {
+//                        t.getAmigos().add((Usuarios) m.get(jl_p.getSelectedIndex()));
+//                        m2.addElement(t.getAmigos().get(t.getAmigos().size() - 1));
+//                    }
+//                }
+//                jl_a.setModel(m2);
+//                m.remove(jl_p.getSelectedIndex());
+//                jl_p.setModel(m);
+//                ap.escribirArchivo();
+//            }
             if (jl_p.getSelectedIndex() >= 0) {
                 DefaultListModel m = (DefaultListModel) jl_p.getModel();
                 DefaultListModel m2 = (DefaultListModel) jl_a.getModel();
                 administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
                 ap.cargarArchivo();
+                String nombre, sexo, usuario, contraseña, descripcion, tipo;
+                int edad;
+                nombre = ((Usuarios) m.get(jl_p.getSelectedIndex())).getNombre();
+                edad = ((Usuarios) m.get(jl_p.getSelectedIndex())).getEdad();
+                sexo = ((Usuarios) m.get(jl_p.getSelectedIndex())).getSexo();
+                usuario = ((Usuarios) m.get(jl_p.getSelectedIndex())).getUsuario();
+                contraseña = ((Usuarios) m.get(jl_p.getSelectedIndex())).getContraseña();
+                descripcion = ((Usuarios) m.get(jl_p.getSelectedIndex())).getDescripcion();
+                tipo = ((Usuarios) m.get(jl_p.getSelectedIndex())).getTipo();
+                ArrayList intereses = new ArrayList();
+                ArrayList<Usuarios> amigos = new ArrayList();
+                ArrayList<Usuarios> interesados = new ArrayList();
+                ArrayList<mensajes> mensajes = new ArrayList();
+                ArrayList<Usuarios> solicitudes = new ArrayList();
+                ArrayList<Usuarios> bloqueados = new ArrayList();
+                ArrayList<Calendario> citas = new ArrayList();
+                Usuarios u = new Usuarios(nombre, edad, sexo, usuario, contraseña, descripcion, tipo);
+                u.setAmigos(amigos);
+                u.setIntereses(intereses);
+                u.setInteresados(interesados);
+                u.setMensajes(mensajes);
+                u.setBloqueados(bloqueados);
+                u.setSolicitudes(solicitudes);
+                u.setCitas(citas);
                 for (Usuarios t : ap.getListaUsuarios()) {
-                    if (tf_iu.getText().equals(t.getUsuario())) {
-                        t.getAmigos().add((Usuarios) m.get(jl_p.getSelectedIndex()));
+                    if (tf_iu.getText().equals(t.getUsuario()) && tf_ip.getText().equals(t.getContraseña())) {
+                        t.getAmigos().add(u);
                         m2.addElement(t.getAmigos().get(t.getAmigos().size() - 1));
                     }
                 }
@@ -1322,26 +1371,27 @@ public class principal extends javax.swing.JFrame {
                 jl_p.setModel(m);
                 ap.escribirArchivo();
             }
+
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
-        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
-        ap.cargarArchivo();
-        ap.escribirArchivo();
-        JOptionPane.showMessageDialog(this, "Adios");
-        System.exit(0);
+//        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+//        ap.cargarArchivo();
+//        ap.escribirArchivo();
+//        JOptionPane.showMessageDialog(this, "Adios");
+//        System.exit(0);
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
-        ap.cargarArchivo();
-        ap.escribirArchivo();
-        JOptionPane.showMessageDialog(this, "Adios, archivo guardado con exito");
-        System.exit(0);
+//        administrarUsuarios ap = new administrarUsuarios("./Usuarios.ella");
+//        ap.cargarArchivo();
+//        ap.escribirArchivo();
+//        JOptionPane.showMessageDialog(this, "Adios, archivo guardado con exito");
+//        System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
     /**

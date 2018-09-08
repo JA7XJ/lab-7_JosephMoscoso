@@ -15,6 +15,7 @@ public class mensajes implements Serializable {
 
     private String mensaje;
     private String destino;
+    private static final long SerialVersionUTD = 777L;
 
     public mensajes() {
     }
@@ -42,7 +43,7 @@ public class mensajes implements Serializable {
 
     @Override
     public String toString() {
-        return "mensajes{" + "mensaje=" + mensaje + ", destino=" + destino + '}';
+        return mensaje;
     }
-    
+
 }
